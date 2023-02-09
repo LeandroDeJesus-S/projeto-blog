@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>{% block title %} Blog Aleatorio {% endblock title %}</title>
+
+    <!--_head.html-->
+    {% include 'partials/_head.html' %}
+    <!--/_head.html-->
+</head>
+
+<body>
+
+<!--_nav.html-->
+{% include 'partials/_nav.html' %}
+<!--/_nav.html-->
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <!-- CONTENT -->
+            {% block content %}{% endblock content %}
+            <!--/CONTENT-->
+
+        </div>
+    </div>
+</div>
+
+<!--_footer.html-->
+{% include 'partials/_footer.html' %}
+<!--/_footer.html-->
+
+</body>
+
+</html>

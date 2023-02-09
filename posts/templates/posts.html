@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+<div class="card-columns mt-4">
+    <!-- FOR LOOP -->
+    {% for post in posts %}
+        {% if post.publicado %}
+        <div class="card">
+
+            <a href="{% url 'post_detalhes' post.id %}">
+                {% if post.imagem %}
+                    <img class="card-img-top"
+                        src="{{ post.imagem.url }}"
+                        alt="Card image cap">
+                {% endif %}
+            </a>
+
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'post_detalhes' post.id %}">
+                        {{post.titulo}}
+                    </a>
+                </h5>
+                <p class="card-text">{{post.excerto}}</p>
+                <p class="card-text">
+                    <small class="text-muted">
+                        {{post.data|naturalday|title}} | 
+                        {{post.num_comentarios}} comentário(s) | 
+                        {{post.categoria}}
+                    </small>
+                </p>
+
+                <div class="text-right">
+                    <a href="{% url 'post_detalhes' post.id %}" class="btn btn-outline-secondary">Ler mais...</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <!--/FOR LOOP-->
+</div>
+
+<!-- _pagination.html -->
+{% include 'partials/_pagination.html' %}
+<!-- _pagination.html -->
+
+{% endblock content %}
