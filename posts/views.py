@@ -11,7 +11,7 @@ from django.contrib import messages
 class PostIndex(ListView):
     model = Post
     template_name = 'posts.html'
-    paginate_by = 5
+    paginate_by = 3
     context_object_name = 'posts'
     ordering = 'id'
     
