@@ -17,6 +17,7 @@ class PostIndex(ListView):
     
     def get_queryset(self):
         qs = super().get_queryset()
+        qs = qs.select_related('categoria')
         qs = qs.annotate(
             num_comentarios=Count(
                 Case(
