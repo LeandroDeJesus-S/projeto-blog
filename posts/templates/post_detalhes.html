@@ -2,7 +2,7 @@
 
 {% load humanize %}
 {% block content %}
-<div class="container">
+{% comment %} <div class="container"> {% endcomment %}
     <div class="row pt-5">
         <div class="col-xl"></div>
         <div class="col-xl-8 text-center">
@@ -29,9 +29,9 @@
         </div>
         <div class="col-xl"></div>
     </div>
-
+    <hr>
     {% if comentarios %}
-    <div class="row pt-5">
+    <div class="row">
         <div class="col-xl"></div>
         <div class="col-xl-8">
             <h2 class="my-3">Comentários ({{comentarios.count}})</h2>
@@ -53,8 +53,8 @@
         <div class="col-xl"></div>
     </div>
     {% endif %}
-
-    <div class="row pt-5">
+    <hr>
+    <div class="row">
         <div class="col-xl"></div>
         <div class="col-xl-8">
             <h2 class="my-3">Deixe um comentário</h2>
@@ -67,9 +67,9 @@
                     
                 {% for visible_field in form.visible_fields %}
                     <div class="form-group">
-                        {{visible_field.errors}}<br>
                         {{visible_field.label_tag}}<br>
                         {{visible_field}}<br>
+                        {{visible_field.errors}}<br>
                     </div>
                 {% endfor %}
 
@@ -83,5 +83,5 @@
         </div>
         <div class="col-xl"></div>
     </div>
-</div>
+{% comment %} </div> {% endcomment %}
 {% endblock content %}
