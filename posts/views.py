@@ -82,5 +82,5 @@ class PostDetalhes(UpdateView):
             comentario.usuario = user
         
         comentario.save()
-        messages.success(self.request, 'Comentário enviado para analize.')
+        messages.success(self.request, 'Comentário enviado para análise.')
         return redirect('post_detalhes', pk=post.id)
