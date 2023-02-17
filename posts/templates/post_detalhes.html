@@ -67,11 +67,12 @@
 
                         {{visible_field.label_tag}}<br>
                         {{visible_field}}<br>
-                        {{visible_field.errors}}<br>
+                        {{visible_field.errors}}
 
                     </div>
                 {% endfor %}                
-
+                
+                <div class="g-recaptcha" data-sitekey="6Lcrj4skAAAAAFOAxFUR3YMqaNeMeMsn6wWY9squ"></div>
                 {% include 'partials/_messages.html' %}
                 <input id="envia_comentario" type="submit" class="btn btn-primary"
                     value="Enviar">                   
@@ -81,5 +82,12 @@
         </div>
         <div class="col-xl"></div>
     </div>
-{% comment %} </div> {% endcomment %}
+
+    
+    <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+    </script>
+
 {% endblock content %}
