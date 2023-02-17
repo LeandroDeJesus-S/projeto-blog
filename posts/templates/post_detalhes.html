@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% load humanize %}
 {% block content %}
 {% comment %} <div class="container"> {% endcomment %}
@@ -21,7 +20,7 @@
         <div class="col-xl"></div>
         <div class="col-xl-8">
             {% if post.imagem %}
-            <img class="img-fluid pb-5 " src="{{post.imagem.url}}" alt="">
+            <img class="img-fluid pb-5" src="{{post.imagem.url}}" alt="">
             {% endif %}
 
             {{post.conteudo|safe}}
@@ -47,8 +46,6 @@
             
             {% endfor %}
 
-
-
         </div>
         <div class="col-xl"></div>
     </div>
@@ -60,23 +57,24 @@
             <h2 class="my-3">Deixe um comentário</h2>
 
             <form method="POST" action="#envia_comentario">{% csrf_token %}
-                    
+
                 {% for hidden_field in form.hidden_fields %}
-                    {{hidden_field}}
+                    {{hidden_field}}<br>
                 {% endfor %}
-                    
+
                 {% for visible_field in form.visible_fields %}
                     <div class="form-group">
+
                         {{visible_field.label_tag}}<br>
                         {{visible_field}}<br>
                         {{visible_field.errors}}<br>
+
                     </div>
-                {% endfor %}
+                {% endfor %}                
 
                 {% include 'partials/_messages.html' %}
                 <input id="envia_comentario" type="submit" class="btn btn-primary"
-                    value="Enviar">
-                       
+                    value="Enviar">                   
                     
             </form>
 
