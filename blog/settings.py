@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_summernote',
-    # 'crispy_forms',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'axes',
     'categorias',
     'comentarios',
@@ -156,8 +157,9 @@ MESSAGE_TAGS = {
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # crispy forms conf
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# axes conf
 AUTHENTICATION_BACKENDS = [
     # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
     'axes.backends.AxesStandaloneBackend',
@@ -166,7 +168,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 AXES_FAILURE_LIMIT = 5
- 
+
+
 try:
     from .local_settings import *
 except ImportError:
