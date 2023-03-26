@@ -12,7 +12,7 @@ from django.views import View
 class PostIndex(ListView):
     model = Post
     template_name = 'posts.html'
-    paginate_by = 3
+    paginate_by = 6
     context_object_name = 'posts'
     ordering = 'id'
     
