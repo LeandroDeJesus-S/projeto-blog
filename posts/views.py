@@ -61,33 +61,6 @@ class PostCategoria(PostIndex):
         return qs
 
 
-# class PostDetalhes(UpdateView):
-#     template_name = 'post_detalhes.html'
-#     model = Post
-#     form_class = ComentarioForm
-#     context_object_name = 'post'
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         post = self.get_object()
-#         comentarios = Comentario.objects.filter(publicado=True,
-#                                                 post=post.id)
-#         context['comentarios'] = comentarios
-#         return context
-
-#     def form_valid(self, form):
-#         post = self.get_object()
-#         comentario = Comentario(**form.cleaned_data)
-#         user = self.request.user
-#         comentario.post = post
-#         if user.is_authenticated:
-#             comentario.usuario = user
-        
-#         comentario.save()
-#         messages.success(self.request, 'Comentário enviado para análise.')
-#         return redirect('post_detalhes', pk=post.id)
-
-
 class PostDetalhes(View):
     template_name = 'post_detalhes.html'
     

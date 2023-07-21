@@ -21,7 +21,10 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs) -> None:
         super().save(*args, **kwargs)
-        self.auto_resize_image()
+        try:
+            self.auto_resize_image()
+        except Exception as error:
+            print(error)
         
     def auto_resize_image(self):
         NEW_WIDTH = 400
@@ -36,4 +39,3 @@ class Post(models.Model):
         new_image.save(image_path, optimize=True, quality=70)
         img.close()
         new_image.close()
-        
